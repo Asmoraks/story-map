@@ -1,0 +1,81 @@
+.debug-root {
+    width: 320px;
+    padding: 16px;
+    background: #1E1F22;
+    border-radius: 12px;
+    border: 1px #3A3F4B;
+    gap: 10px;
+}
+
+.header {
+    width: 100%;
+    padding: 8px 12px;
+    background: #2A2E35;
+    border-radius: 8px;
+    margin-bottom: 4px;
+}
+
+.title {
+    color: #E8B84A;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.status-row {
+    width: 100%;
+    padding: 6px 12px;
+    background: #24272E;
+    border-radius: 6px;
+    gap: 8px;
+}
+
+.label {
+    color: #A0A8B8;
+    font-size: 13px;
+}
+
+.value {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.button-row {
+    width: 100%;
+    padding: 10px 14px;
+    background: #31343D;
+    border-radius: 8px;
+    border: 1px #3F4450;
+    transition: background 0.15s, border-color 0.15s;
+    cursor: pointer;
+}
+
+.button-row:hover {
+    background: #3A3F4B;
+    border-color: #5A6270;
+}
+
+.button-row:active {
+    background: #2A2E35;
+}
+
+.button {
+    color: #D0D4DC;
+    font-size: 14px;
+}
+
+.button-row:hover .button {
+    color: #FFFFFF;
+}
+
+.button-row.toggle .button {
+    color: #E8B84A;
+}
+
+.button-row.danger .button {
+    color: #E06C75;
+}
+
+.button-row.close .button {
+    color: #8B92A0;
+}
