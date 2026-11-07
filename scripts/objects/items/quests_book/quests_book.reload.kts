@@ -8,10 +8,8 @@ import ru.hollowhorizon.hollowengine.common.ui.net.openUi
 @SubscribeEvent
 fun PlayerInteractEvent(event: PlayerInteractEvent.ItemInteract) {
     val player = event.player as? ServerPlayer ?: return
-    val itemStack = player.mainHandItem
     
-    if (player.level().isClientSide) return
-    if (itemStack.item != MENU_BOOK) return
+    if (player.mainHandItem.item != QUESTS_BOOK) return
     
-    player.openUi("efc:quests_list")
+    player.openUi("efc:quests_book")
 }

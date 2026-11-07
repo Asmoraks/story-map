@@ -10,9 +10,9 @@ import ru.hollowhorizon.hollowengine.common.scripting.story.functions.player.giv
 fun onPlayerJoin(event: PlayerEvent.Join) {
     val player = event.player
     
-    val myItem = itemFilter(item("efc:menu_book"))
+    val myItem = itemFilter(item("efc:quests_book"))
     if (player.countItems(myItem) == 0) {
-        player.giveItem(item("efc:menu_book", 1))
+        player.giveItem(item("efc:quests_book", 1))
     }
     
 }

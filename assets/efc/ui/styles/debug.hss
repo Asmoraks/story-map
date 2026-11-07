@@ -1,5 +1,13 @@
+
+.screen-root {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
 .debug-root {
-    width: 320px;
+    width: 420px;
     padding: 16px;
     background: #1E1F22;
     border-radius: 12px;
@@ -12,7 +20,6 @@
     padding: 8px 12px;
     background: #2A2E35;
     border-radius: 8px;
-    margin-bottom: 4px;
 }
 
 .title {
@@ -21,6 +28,46 @@
     font-weight: bold;
 }
 
+/* ---- tabs ---- */
+.tabs-row {
+    width: 100%;
+    gap: 6px;
+}
+
+.tab-btn {
+    padding: 8px 10px;
+    background: #2A2E35;
+    border-radius: 8px;
+    border: 1px #3A3F4B;
+    cursor: pointer;
+}
+
+.tab-btn:hover {
+    background: #343944;
+}
+
+.tab-btn-active {
+    background: #3A3F4B;
+    border-color: #E8B84A;
+}
+
+.tab-btn-text {
+    color: #C0C6D0;
+    font-size: 12px;
+}
+
+.tab-btn-active .tab-btn-text {
+    color: #E8B84A;
+    font-weight: bold;
+}
+
+.tab-content {
+    width: 100%;
+    gap: 8px;
+    padding: 4px 0;
+}
+
+/* ---- content ---- */
 .status-row {
     width: 100%;
     padding: 6px 12px;
@@ -40,13 +87,24 @@
     font-weight: bold;
 }
 
+.value-on {
+    color: #55FF55;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.value-off {
+    color: #FF5555;
+    font-size: 13px;
+    font-weight: bold;
+}
+
 .button-row {
     width: 100%;
     padding: 10px 14px;
     background: #31343D;
     border-radius: 8px;
     border: 1px #3F4450;
-    transition: background 0.15s, border-color 0.15s;
     cursor: pointer;
 }
 
@@ -55,21 +113,14 @@
     border-color: #5A6270;
 }
 
-.button-row:active {
-    background: #2A2E35;
-}
-
 .button {
     color: #D0D4DC;
     font-size: 14px;
 }
 
-.button-row:hover .button {
-    color: #FFFFFF;
-}
-
 .button-row.toggle .button {
     color: #E8B84A;
+    font-weight: bold;
 }
 
 .button-row.danger .button {
@@ -78,4 +129,27 @@
 
 .button-row.close .button {
     color: #8B92A0;
+}
+.hint-row {
+    width: 100%;
+    padding: 4px 8px;
+}
+
+.hint {
+    color: #7E8796;
+    font-size: 12px;
+}
+
+.info-block {
+    width: 100%;
+    gap: 6px;
+    padding: 8px;
+    background: #24272E;
+    border-radius: 8px;
+}
+
+.info-title {
+    color: #E8B84A;
+    font-size: 14px;
+    font-weight: bold;
 }

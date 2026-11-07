@@ -1,15 +1,14 @@
+@file:Import("system/debug/block_interact/block_data.kts")
+
 import net.minecraft.server.level.ServerPlayer
-import ru.hollowhorizon.hollowengine.common.ui.net.UiSession
 import ru.hollowhorizon.hollowengine.common.ui.net.openUi
 
-private suspend fun ServerPlayer.debugMenu() {
-    var session: UiSession? = null
-    
-    session = openUi("efc:debug") {
+fun openDebugMenu(player: ServerPlayer) {
+    player.openUi("efc:debug") {
         onEvent { payload ->
             when (payload.getString("action")) {
                 "close" -> close()
             }
         }
-    } 
+    }
 }
