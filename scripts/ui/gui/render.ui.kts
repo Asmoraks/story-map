@@ -1,4 +1,4 @@
-@file:Import("custom/quests.ui.kts", "custom/debug.ui.kts")  
+@file:Import("custom/quests.ui.kts", "custom/debug/debug.ui.kts")  
 
 screen("efc:quests_list") {
     title = "Мой дневник"
