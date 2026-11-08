@@ -1,4 +1,4 @@
-@file:Import("system/debug/block_interact/block_data.kts")
+
 
 private enum class DebugTab {
     INFO,
@@ -85,6 +85,8 @@ private fun UiScope.TabChip(
 @Composable
 private fun UiScope.SelectModeContent() {
     // заголовок секции — СНАРУЖИ рамки
+    val allowedBlocksType = emptyList<String>()
+    val selectionModetest = data.get<Boolean>(dataKey("test"))
     Row(tags = listOf("section-header")) {
         Text("■", tags = listOf("section-icon"))
         Text("Режим выбора блоков", tags = listOf("section-title"))
@@ -105,8 +107,8 @@ private fun UiScope.SelectModeContent() {
             ) {
                 Text("◀", tags = listOf("toggle-arrow"))
                 Text(
-                    if (player.uuid in selectionMode) "ВКЛ" else "ВЫКЛ",
-                    tags = listOf(if (player.uuid in selectionMode) "toggle-on" else "toggle-off")
+                    if (selectionModetest) "ВКЛ" else "ВЫКЛ",
+                    tags = listOf(if (selectionModetest) "toggle-on" else "toggle-off")
                 )
                 Text("▶", tags = listOf("toggle-arrow"))
             }
@@ -149,7 +151,7 @@ private fun UiScope.SelectModeContent() {
                     allowedBlocksType.forEach { pos ->
                         Row(tags = listOf("list-item")) {
                             Text("■", tags = listOf("list-item-icon"))
-                            Text(pos, tags = listOf("list-item-text"))
+                            Text("pos", tags = listOf("list-item-text"))
                         }
                     }
                 }

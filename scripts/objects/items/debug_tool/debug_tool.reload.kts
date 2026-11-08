@@ -1,5 +1,5 @@
 @file:Import("objects/items/debug_tool/debug_tool.startup.kts", 
-"system/debug/debug_menu.kts")
+"gui/custom/debug/debug.kts")
 
 import efc.items.debug.*
 import net.minecraft.server.level.ServerPlayer
