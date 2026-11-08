@@ -8,6 +8,7 @@ fun openDebugMenu(player: ServerPlayer) {
         onEvent { payload ->
             when (payload.getString("action")) {
                 "close" -> close()
+                "toggle_selection" -> close()
             }
         }
     }
