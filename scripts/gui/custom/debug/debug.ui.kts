@@ -1,5 +1,3 @@
-
-
 private enum class DebugTab {
     INFO,
     SELECT_MODE,
@@ -10,7 +8,7 @@ private enum class DebugTab {
 @Composable
 fun UiScope.DebugMenu() {
     var tab by remember { mutableStateOf(DebugTab.SELECT_MODE) }
-
+    
     Box(
         tags = listOf("screen-root"),
         modifier = Modifier.style("efc:ui/styles/debug.hss")
@@ -87,6 +85,8 @@ private fun UiScope.SelectModeContent() {
     // заголовок секции — СНАРУЖИ рамки
     val allowedBlocksType = emptyList<String>()
     val selectionModetest = data.get<Boolean>(dataKey("test"))
+    var enable by remember { mutableStateOf(selectionModetest) }
+    
     Row(tags = listOf("section-header")) {
         Text("■", tags = listOf("section-icon"))
         Text("Режим выбора блоков", tags = listOf("section-title"))
@@ -107,8 +107,8 @@ private fun UiScope.SelectModeContent() {
             ) {
                 Text("◀", tags = listOf("toggle-arrow"))
                 Text(
-                    if (selectionModetest) "ВКЛ" else "ВЫКЛ",
-                    tags = listOf(if (selectionModetest) "toggle-on" else "toggle-off")
+                    if (enable) "Вкл" else "Выкл",
+                    tags = listOf(if (enable) "toggle-on" else "toggle-off")
                 )
                 Text("▶", tags = listOf("toggle-arrow"))
             }
