@@ -83,9 +83,13 @@ private fun UiScope.TabChip(
 @Composable
 private fun UiScope.SelectModeContent() {
     // заголовок секции — СНАРУЖИ рамки
-    val allowedBlocksType = emptyList<String>()
-    val selectionModetest = data.get<Boolean>(dataKey("test"))
-    var enable by remember { mutableStateOf(selectionModetest) }
+    val allowedBlocksType = data.get<String>(dataKey("blocks_type"))
+    val selectionMode = data.get<Boolean>(dataKey("selection_mode"))
+    var enable by remember { mutableStateOf(selectionMode) }
+    
+    if (enable != selectionMode) {
+        enable = selectionMode
+    }
     
     Row(tags = listOf("section-header")) {
         Text("■", tags = listOf("section-icon"))
@@ -126,7 +130,7 @@ private fun UiScope.SelectModeContent() {
             tags = listOf("action-secondary"),
             modifier = Modifier.onClick {
                 // включает режим и подсказывает игроку
-                send { putString("action", "toggle_selection") }
+                send { putString("action", "blocks_selection") }
             }
         ) {
             Text("■  Выбор блоков для редактирования", tags = listOf("action-primary-text"))
@@ -137,7 +141,7 @@ private fun UiScope.SelectModeContent() {
             Row(tags = listOf("list-header")) {
                 Text("Выбранные блоки ", tags = listOf("list-title"))
                 Text(
-                    " ${allowedBlocksType.size}",
+                    " ${allowedBlocksType}",
                     tags = listOf("list-count")
                 )
             }
@@ -151,7 +155,7 @@ private fun UiScope.SelectModeContent() {
                     allowedBlocksType.forEach { pos ->
                         Row(tags = listOf("list-item")) {
                             Text("■", tags = listOf("list-item-icon"))
-                            Text("pos", tags = listOf("list-item-text"))
+                            Text(allowedBlocksType, tags = listOf("list-item-text"))
                         }
                     }
                 }

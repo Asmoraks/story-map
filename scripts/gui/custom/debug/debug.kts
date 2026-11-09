@@ -7,22 +7,22 @@ import ru.hollowhorizon.hollowengine.common.ui.net.openUi
 fun openDebugMenu(player: ServerPlayer) {
     player.openUi("efc:debug") {
         val enable = player.uuid in selectionMode
-        put(dataKey("test"), enable)
+        put(dataKey("selection_mode"), enable)
         onEvent { payload ->
             when (payload.getString("action")) {
                 "toggle_selection" -> {
-                    if (enable){
+                    if (player.uuid in selectionMode){
                         selectionMode.remove(player.uuid)
                     } else {
                         selectionMode.add(player.uuid)
                     }
-                    val enable = player.uuid in selectionMode
-                    put(dataKey("test"), enable)
+                    put(dataKey("selection_mode"), player.uuid in selectionMode)
+                }
+                "blocks_selection" -> {
+                    put(dataKey("blocks_type"), allowedBlocksType.toString())
                 }
                 
-                "close" -> close()                
-                
-                
+                "close" -> close()
             }
         }
     }
