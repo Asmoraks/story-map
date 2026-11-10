@@ -8,6 +8,7 @@ fun openDebugMenu(player: ServerPlayer) {
     player.openUi("efc:debug") {
         val enable = player.uuid in selectionMode
         put(dataKey("selection_mode"), enable)
+        put(dataKey("blocks_type"), allowedBlocksType.toString())
         onEvent { payload ->
             when (payload.getString("action")) {
                 "toggle_selection" -> {

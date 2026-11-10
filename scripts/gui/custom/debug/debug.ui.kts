@@ -85,6 +85,7 @@ private fun UiScope.SelectModeContent() {
     // заголовок секции — СНАРУЖИ рамки
     val allowedBlocksType = data.get<String>(dataKey("blocks_type"))
     val selectionMode = data.get<Boolean>(dataKey("selection_mode"))
+    val blockList = if (allowedBlocksType.isBlank()) emptyList() else listOf(allowedBlocksType)
     var enable by remember { mutableStateOf(selectionMode) }
     
     if (enable != selectionMode) {
@@ -134,32 +135,6 @@ private fun UiScope.SelectModeContent() {
             }
         ) {
             Text("■  Выбор блоков для редактирования", tags = listOf("action-primary-text"))
-        }
-
-        // список выбранных блоков
-        Column(tags = listOf("list-card")) {
-            Row(tags = listOf("list-header")) {
-                Text("Выбранные блоки ", tags = listOf("list-title"))
-                Text(
-                    " ${allowedBlocksType}",
-                    tags = listOf("list-count")
-                )
-            }
-
-            if (allowedBlocksType.isEmpty()) {
-                Row(tags = listOf("list-empty")) {
-                    Text("Список пуст", tags = listOf("list-empty-text"))
-                }
-            } else {
-                Column(tags = listOf("list-body")) {
-                    allowedBlocksType.forEach { pos ->
-                        Row(tags = listOf("list-item")) {
-                            Text("■", tags = listOf("list-item-icon"))
-                            Text(allowedBlocksType, tags = listOf("list-item-text"))
-                        }
-                    }
-                }
-            }
         }
 
         // очистить
